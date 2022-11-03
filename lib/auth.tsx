@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
+import { firebaseApp } from './firebase.config'
 import {
   User,
   getAuth,
@@ -16,7 +17,8 @@ interface iAuthContext {
 }
 
 //firebase
-const auth = getAuth()
+
+const auth = getAuth(firebaseApp)
 const googleProvider = new GoogleAuthProvider()
 googleProvider.setCustomParameters({ prompt: 'select_account' })
 
